@@ -1,3 +1,22 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "n",
+    "e",
+    "x",
+    "t",
+    "/",
+    "c",
+    "o",
+    "r",
+    "-",
+    "w",
+    "b",
+    "v",
+    "i",
+    "a",
+    "l",
+    "s",
+    "next/core-web-vitals",
+    "prettier"
+  ]
 }
