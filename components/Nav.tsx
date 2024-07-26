@@ -8,7 +8,7 @@ const Nav = () => {
   const [post, setPost] = useState<FBPostProps>();
 
   return (
-    <div className='z-50 flex h-full flex-col justify-center gap-1 overflow-auto p-3'>
+    <div className='flex h-full flex-col justify-center p-3'>
       <PostForm onChange={setPost} />
     </div>
   );

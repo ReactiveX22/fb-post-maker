@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import Nav from '@/components/Nav';
@@ -8,10 +9,16 @@ import { PostProvider } from '@/components/PostContext';
 import { ModeToggle } from '@/components/ui/toggle-mode';
 import { Rocket } from 'lucide-react';
 
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['200', '400', '700'],
+  variable: '--font-poppins',
+});
+
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'FB Post Maker',
+  title: 'Post Maker',
   description: 'Make Cute FB Post and Download as PNG',
 };
 
@@ -25,7 +32,8 @@ export default function RootLayout({
       <body
         className={cn(
           'min-h-screen bg-background font-sans antialiased',
-          inter.className
+          inter.className,
+          poppins.variable
         )}
       >
         <ThemeProvider attribute='class' defaultTheme='system'>

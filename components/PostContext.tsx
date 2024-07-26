@@ -21,7 +21,7 @@ export const PostProvider: React.FC<{ children: ReactNode }> = ({
     profileEmoji: '❤️‍🩹',
     leftCaption: '😇',
     rightCaption: '🤗',
-    reactionCount: '1.5',
+    reactionCount: '1.5K',
     commentCount: '157',
     shareCount: '279',
     leftImage: leftPic?.src, // Initialize with an empty string or default image URL

@@ -1,11 +1,6 @@
 'use client';
 
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-import leftPic from './images/cute1.jpg';
-import rightPic from './images/cute2.jpg';
-import { Input } from '@/components/ui/input';
+import { usePost } from '@/components/PostContext';
 import {
   Form,
   FormControl,
@@ -15,8 +10,11 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
-import { usePost } from '@/components/PostContext';
+import { Input } from '@/components/ui/input';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect, useRef } from 'react';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
 import { FBPostProps } from './FacebookPost';
 
 const formSchema = z.object({
@@ -90,7 +88,7 @@ export function PostForm({ onChange }: PostFormProps) {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className='grid max-h-screen grid-cols-1 gap-6 lg:grid-cols-2'
+        className='grid grid-cols-1 gap-3 lg:grid-cols-2'
       >
         {/* Author Name Field */}
         <FormField
@@ -98,13 +96,11 @@ export function PostForm({ onChange }: PostFormProps) {
           name='authorName'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Author Name</FormLabel>
+              <FormLabel>Profile Name</FormLabel>
               <FormControl>
                 <Input placeholder='Author Name' {...field} />
               </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
+              <FormDescription>Enter the profile name.</FormDescription>
               <FormMessage />
             </FormItem>
           )}

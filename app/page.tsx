@@ -1,15 +1,8 @@
-import FacebookPost, { FBPostProps } from "@/components/FacebookPost";
-import { PostForm } from "@/components/PostForm";
-import { useState } from "react";
-
-
+import FacebookPost from '@/components/FacebookPost';
 
 export default function Home() {
-  
-
   return (
     <>
-      
       <FacebookPost />
     </>
   );

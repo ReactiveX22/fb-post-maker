@@ -1,16 +1,16 @@
 'use client';
 import { usePost } from '@/components/PostContext';
 
+import { toPng } from 'html-to-image';
 import { Ellipsis, ImageDown } from 'lucide-react';
+import Image from 'next/image';
+import { FC, useCallback, useRef } from 'react';
 import leftPic from './images/cute1.jpg';
 import rightPic from './images/cute2.jpg';
-import React, { FC, JSXElementConstructor, useCallback, useRef } from 'react';
+import { Button } from './ui/button';
 import HeartSVG from './ui/HeartSVG';
 import LikeSVG from './ui/LikeSVG';
 import WorldSVG from './ui/WorldSVG';
-import { toPng } from 'html-to-image';
-import Image from 'next/image';
-import { Button } from './ui/button';
 
 export interface FBPostProps {
   authorName: string;
@@ -65,7 +65,7 @@ const FacebookPost: FC = () => {
       });
   }, [ref]);
   return (
-    <div className='flex flex-col items-center gap-4'>
+    <div className='flex flex-col items-center gap-4 leading-none'>
       <div ref={ref}>
         <div className='bg-bg-fb px-4 py-8 font-fb-font'>
           <div className='flex w-[360px] flex-col items-center rounded-lg bg-bg-post drop-shadow-lg lg:w-[590px]'>
@@ -75,8 +75,8 @@ const FacebookPost: FC = () => {
                 <div className='flex h-10 w-10 items-center justify-center rounded-full bg-[#3E5641] text-2xl'>
                   {post.profileEmoji}
                 </div>
-                <div className='flex h-full flex-col justify-between gap-1'>
-                  <div className='text-[15px] font-semibold text-zinc-100'>
+                <div className='flex h-full flex-col justify-between gap-[6px]'>
+                  <div className='text-sm font-semibold text-zinc-100'>
                     {post.authorName}
                   </div>
                   <div className='flex w-full items-center gap-2 text-xs font-thin text-zinc-400'>
@@ -91,16 +91,16 @@ const FacebookPost: FC = () => {
                 </div>
               </div>
               <div className='p-3'>
-                <Ellipsis className='text-zinc-400' size={22} />
+                <Ellipsis className='w-5 text-zinc-400 lg:w-6' />
               </div>
             </div>
             {/* Caption and Photo */}
             <div className='w-full'>
-              <div className='my-3 flex w-full justify-between text-sm font-normal'>
+              <div className='my-3 flex w-full justify-between text-xs font-normal lg:text-sm'>
                 <div className='w-full px-3'>{post.leftCaption}</div>
                 <p className='w-full px-3'>{post.rightCaption}</p>
               </div>
-              <div className='flex w-full justify-between'>
+              <div className='flex h-[180px] w-full justify-between gap-[1px] overflow-clip lg:h-[294px]'>
                 <div className='w-[180px] lg:w-[294px]'>
                   <Image
                     src={post.leftImage ?? leftPic.src}
@@ -134,11 +134,11 @@ const FacebookPost: FC = () => {
                     </div>
                   </div>
                 </div>
-                <div className='ml-7 text-sm text-zinc-400'>
-                  {post.reactionCount}K
+                <div className='ml-6 text-xs text-zinc-400 lg:text-sm'>
+                  {post.reactionCount}
                 </div>
               </div>
-              <div className='flex w-fit items-center gap-2 text-nowrap text-sm text-zinc-400'>
+              <div className='flex w-fit items-center gap-2 text-nowrap text-xs text-zinc-400 lg:text-sm'>
                 <span>{post.commentCount} comments</span>
                 <div>{post.shareCount} shares</div>
               </div>
@@ -146,7 +146,7 @@ const FacebookPost: FC = () => {
           </div>
         </div>
       </div>
-      <Button onClick={onButtonClick} className='w-fit'>
+      <Button onClick={onButtonClick} className='flex w-fit gap-1'>
         <ImageDown strokeWidth={1.25} />
         Download
       </Button>

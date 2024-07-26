@@ -19,13 +19,7 @@ const config = {
     },
     extend: {
       fontFamily: {
-        'fb-font': [
-          'Segoe UI Historic',
-          'Segoe UI',
-          'Helvetica',
-          'Roboto',
-          'monospace',
-        ],
+        'fb-font': ['Segoe UI Historic', 'var(--font-poppins)', 'monospace'],
       },
       colors: {
         'bg-fb': '#18191a',
